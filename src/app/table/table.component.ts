@@ -129,8 +129,12 @@ export class TableComponent implements OnInit {
   }
 
   handleUpdateName(i){
-      this.searchArray[i].listName = this.inputChangesValue;
-      this.num1 = undefined;
+    if(this.inputChangesValue !== "" && this.inputChangesValue.length > 0)
+{      this.searchArray[i].listName = this.inputChangesValue;
+      }else{ 
+           this.searchArray[i].listName =      this.searchArray[i].listName
+      }
+      this.num1 = undefined
   }
 
 }
