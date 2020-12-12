@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PrivateCircle-UI-Assignment"
+    }
+  },
+  "defaultProject": "PrivateCircle-UI-Assignment",
+  "cli": {
+    "analytics": false
+  }
 }

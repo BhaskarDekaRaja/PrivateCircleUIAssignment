@@ -1,0 +1,44 @@
+<header>
+    <button class="button"> <i class="fa fa-list"></i> SAVED LISTS</button>
+    <button> <i class="fa fa-filter"></i> SAVED FILTERS</button>
+    <button><i class="fa fa-history"></i> SEARCH HISTORY</button>
+    <input type="text" id="Input" (keyup)="handleSearchListName($event)" placeholder="Search" title="Type Search">
+  </header>
+  <br/>
+<main class="row">
+    <div class="col-1">
+        <table>
+            <thead> 
+                <tr>
+                    <td>Date</td>
+                    <td>List Name</td>
+                    <td>No. of Enities</td>
+                    <td>Action</td>
+                    <td></td>
+                </tr>
+            </thead>
+             <tbody> 
+                <tr *ngFor="let data of searchArray; index as i">
+                    <td>{{data.date}} </td>
+                    <td>{{data.listName}}</td>
+                    <td>{{data.noOfEntities}}</td>
+                    <td> <i class="fa fa-trash" (click)="handleDelete(i)"></i></td>
+                    <td>
+                        <button (click)="handleDisplayDetails(i)">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-2">
+        <div  class="desc-button">No description yet&nbsp;&nbsp;<span class="desc-span" (click)="handleDisplayDesc()">+Add Description</span></div>
+        <div *ngFor="let data of tableData;index as i">
+        <div *ngIf="num == i">
+           <p *ngFor="let dataDetails of data.details">{{dataDetails}}</p>
+           <p *ngIf="displayInputDes">
+            <input type="text" (keyup)="handleInput($event)" value= {{inputDesValue}} placeholder="Description..."><button  class="btn-btn-add" (click)="handleAddDetails(i)">add</button>
+        </p>
+        </div>
+        </div>
+    </div>
+</main>
