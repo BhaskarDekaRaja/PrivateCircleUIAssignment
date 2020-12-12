@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class TableComponent implements OnInit {
   searchArray= [];
   num:number = 0;
+  num1:number;
   displayInputDes:boolean = false;  
   inputDesValue:string = "";
   listName:string = "";
+  inputChangesValue:string = "";
+  dispalyEditedValue:boolean = false;
   tableData = [
     {
       date:"Jan 21",
@@ -117,5 +120,17 @@ export class TableComponent implements OnInit {
     this.searchArray.splice(index, 1);
   }
 
+  hanldeInputChanges(event){
+    this.inputChangesValue = event.target.value
+  }
+
+  handleEditDisplay(i){
+    this.num1 = i
+  }
+
+  handleUpdateName(i){
+      this.searchArray[i].listName = this.inputChangesValue;
+      this.num1 = undefined;
+  }
 
 }

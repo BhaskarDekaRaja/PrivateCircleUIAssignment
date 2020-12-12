@@ -20,9 +20,15 @@
              <tbody> 
                 <tr *ngFor="let data of searchArray; index as i">
                     <td>{{data.date}} </td>
-                    <td>{{data.listName}}</td>
+                    <td><span>{{data.listName}}</span> &nbsp;
+                        <span *ngIf="num1 == i">
+                             <input type="text" (keyup)="hanldeInputChanges($event)" value = {{data.listName}}>
+                             &nbsp;
+                             <button (click)="handleUpdateName(i)">Update</button>
+                        </span>
+                        </td>
                     <td>{{data.noOfEntities}}</td>
-                    <td> <i class="fa fa-trash" (click)="handleDelete(i)"></i></td>
+                    <td><i class="fa fa-edit" (click)="handleEditDisplay(i)"></i>&nbsp;&nbsp;&nbsp; <i class="fa fa-trash" (click)="handleDelete(i)"></i></td>
                     <td>
                         <button (click)="handleDisplayDetails(i)">Details</button>
                     </td>
